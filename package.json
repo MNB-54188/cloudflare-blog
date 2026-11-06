@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
+    "deploy:local": "wrangler deploy --config wrangler.local.toml",
     "db:init": "wrangler d1 execute blog-db --remote --file=./schema.sql",
     "db:init:local": "wrangler d1 execute blog-db --local --file=./schema.sql",
     "db:create": "wrangler d1 create blog-db",
