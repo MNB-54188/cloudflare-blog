@@ -29,6 +29,9 @@
 2. 把本项目所有文件推上去。注意保留目录结构：`src/`、`functions/`、`public/`、`wrangler.toml` 都在仓库根目录
 3. 打开 `wrangler.toml`，把 `database_id = "REPLACE_WITH_YOUR_DATABASE_ID"` 换成 A1 复制的那串 ID，提交
 
+> 这条路径用的是 Cloudflare 的 Git 集成构建，构建环境读不到本地未提交的文件，所以 ID 必须写进仓库里的 `wrangler.toml`。
+> 用命令行部署的话则不必，把 ID 放在 `wrangler.local.toml` 即可（见路径 B）。
+
 ```toml
 [[d1_databases]]
 binding = "DB"                 # 这个变量名不能改
@@ -85,10 +88,11 @@ npx wrangler login
 # 3. 创建 D1 数据库，输出里会有 database_id
 npx wrangler d1 create blog-db
 
-# 4. 把 database_id 填进 wrangler.toml
+# 4. 复制一份本地配置并填入 database_id（这个文件不会提交到 Git）
+cp wrangler.toml wrangler.local.toml
 
 # 5. 部署
-npm run deploy
+npm run deploy:local
 ```
 
 部署成功后会打印出访问地址。打开 `<地址>/setup` 完成初始化。
