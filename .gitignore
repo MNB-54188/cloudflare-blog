@@ -1,0 +1,13 @@
+node_modules/
+.wrangler/
+.dev.vars
+.env
+dist/
+.DS_Store
+*.log
+
+# 含真实 database_id 的本地部署配置，不提交
+wrangler.local.toml
+
+# 本地工作区数据
+.workbuddy/

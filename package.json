@@ -1,0 +1,19 @@
+{
+  "name": "cloudflare-blog",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "一个可同时部署到 Cloudflare Workers 与 Pages 的完整博客系统（前台 + 后台管理）",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:init": "wrangler d1 execute blog-db --remote --file=./schema.sql",
+    "db:init:local": "wrangler d1 execute blog-db --local --file=./schema.sql",
+    "db:create": "wrangler d1 create blog-db",
+    "pages:deploy": "wrangler pages deploy public --project-name my-blog",
+    "tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

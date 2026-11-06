@@ -1,0 +1,11 @@
+# 本地开发变量（复制为 .dev.vars 使用，切勿提交到 Git）
+# 全部可选：不填也能正常启动，会话密钥会在 /setup 时自动生成并写入 D1。
+
+# 站点名称（优先级低于后台“站点设置”）
+# SITE_NAME="墨记"
+
+# 保护 /setup 初始化页面的口令（强烈建议线上填写）
+# SETUP_TOKEN="change-me-to-a-random-string"
+
+# 会话签名密钥，留空则自动生成并存入 D1
+# SESSION_SECRET="another-random-string"

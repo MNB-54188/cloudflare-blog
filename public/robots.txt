@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /setup
+Disallow: /search
+
+# 站点地图：https://你的域名/sitemap.xml
