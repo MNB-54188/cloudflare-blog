@@ -163,9 +163,16 @@ npm run dev
 ```bash
 npx wrangler login
 npx wrangler d1 create blog-db          # 复制输出的 database_id
-# 把 database_id 填进 wrangler.toml 的 [[d1_databases]]
-npm run deploy
+
+# 把真实配置放在本地文件里（wrangler.local.toml 已被 .gitignore 忽略）
+cp wrangler.toml wrangler.local.toml
+# 编辑 wrangler.local.toml，填上 database_id
+npm run deploy:local
 ```
+
+> 仓库里的 `wrangler.toml` 故意保留 `REPLACE_WITH_YOUR_DATABASE_ID` 占位符，可以放心提交到公开仓库。
+> 真实 ID 写在 `wrangler.local.toml`，不会进版本控制。想省事也可以直接把 ID 填进 `wrangler.toml` 再 `npm run deploy`，
+> 代价是这个 D1 的 ID 会公开（它本身不能直接访问数据库，但从隐私角度仍建议用前者）。
 
 部署完成后访问 `https://<项目名>.<子域>.workers.dev/setup` 完成初始化。
 
